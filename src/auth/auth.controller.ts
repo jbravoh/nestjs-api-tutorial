@@ -1,8 +1,8 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { AuthDto } from './dto';
 
 // add global prefix route 'auth'
-
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -11,7 +11,9 @@ export class AuthController {
 
   @Post('signup')
   // route => POST /auth/signup
-  signup() {
+  // access express' Req's Request Type
+  signup(@Body() dto: AuthDto) {
+    console.log({ dto });
     return this.authService.signup();
   }
 
