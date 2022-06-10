@@ -11,10 +11,10 @@ export class AuthController {
 
   @Post('signup')
   // route => POST /auth/signup
-  // access express' Req's Request Type
+  // access express' Req's Body Request Type
   signup(@Body() dto: AuthDto) {
-    console.log({ dto });
-    return this.authService.signup();
+    // pass dto in the signup function
+    return this.authService.signup(dto);
   }
 
   @Post('login')
