@@ -7,19 +7,19 @@ import { AuthDto } from './dto';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  // create two functions
-
-  @Post('signup')
   // route => POST /auth/signup
+  @Post('signup')
+
   // access express' Req's Body Request Type
   signup(@Body() dto: AuthDto) {
     // pass dto in the signup function
     return this.authService.signup(dto);
   }
 
-  @Post('login')
   // route => POST /auth/login
-  login() {
-    return this.authService.login();
+  @Post('login')
+  login(@Body() dto: AuthDto) {
+    // pass dto in the signup function
+    return this.authService.login(dto);
   }
 }
