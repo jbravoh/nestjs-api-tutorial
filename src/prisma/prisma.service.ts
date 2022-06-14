@@ -5,7 +5,7 @@ import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class PrismaService extends PrismaClient {
   constructor(config: ConfigService) {
-    // super calls the constructor we are extenting => Prisma Client
+    // super calls the constructor we are extending => Prisma Client
     super({
       datasources: {
         db: {
@@ -14,6 +14,5 @@ export class PrismaService extends PrismaClient {
         },
       },
     });
-    console.log(config);
   }
 }
